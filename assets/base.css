@@ -142,10 +142,10 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 }
 
 @media screen and (min-width: 990px) {
-  .header:not(.drawer-menu).page-width {
+  /* .header:not(.drawer-menu).page-width {
     padding-left: 5rem;
     padding-right: 5rem;
-  }
+  } */
 
   .page-width--narrow {
     max-width: 72.6rem;
@@ -2858,7 +2858,7 @@ details[open] > .header__submenu {
   text-decoration: none;
   text-underline-offset: 0.3rem;
   font-family: Roaster;
-  font-size: 15px;
+  font-size: 13px;
   font-style: normal;
   font-weight: 900;
   line-height: normal;
@@ -2899,7 +2899,7 @@ details[open] > .header__menu-item .icon-caret {
 .header__menu-item:hover .header__active-menu-item {
   text-decoration-thickness: 0.2rem;
   font-family: Roaster;
-  font-size: 15px;
+  font-size: 13px;
   font-style: normal;
   font-weight: 900;
   line-height: normal;
