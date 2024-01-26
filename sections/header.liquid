@@ -67,7 +67,7 @@
   .list-menu__item {
     display: flex;
     align-items: center;
-    line-height: calc(1 + 0.3 / var(--font-body-scale));
+    /* line-height: calc(1 + 0.3 / var(--font-body-scale)); */
   }
 
   .list-menu__item--link {
@@ -93,6 +93,7 @@
   .section-header {
     position: sticky; /* This is for fixing a Safari z-index issue. PR #2147 */
     margin-bottom: {{ section.settings.margin_bottom | times: 0.75 | round: 0 }}px;
+    margin-top: 30px;
   }
 
   @media screen and (min-width: 750px) {
@@ -141,7 +142,7 @@
   endfor
 -%}
 
-<{% if section.settings.sticky_header_type != 'none' %}sticky-header data-sticky-type="{{ section.settings.sticky_header_type }}"{% else %}div{% endif %} class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
+<{% if section.settings.sticky_header_type != 'none' %}sticky-header data-sticky-type="{{ section.settings.sticky_header_type }}"{% else %}div{% endif %} class="header-wrapper color-{{ section.settings.color_scheme }} bg{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
   {%- liquid
     assign social_links = false
     assign localization_forms = false
@@ -255,7 +256,7 @@
             {%- endform -%}
           </noscript>
 
-          <localization-form class="small-hide medium-hide no-js-hidden">
+          <localization-form class="small-hide medium-hide no-js-hidden" data-prevent-hide>
             {%- form 'localization', id: 'HeaderCountryForm', class: 'localization-form' -%}
               <div>
                 <h2 class="visually-hidden" id="HeaderCountryLabel">{{ 'localization.country_label' | t }}</h2>
@@ -283,7 +284,7 @@
             {%- endform -%}
           </noscript>
 
-          <localization-form class="small-hide medium-hide no-js-hidden">
+          <localization-form class="small-hide medium-hide no-js-hidden" data-prevent-hide>
             {%- form 'localization', id: 'HeaderLanguageForm', class: 'localization-form' -%}
               <div>
                 <h2 class="visually-hidden" id="HeaderLanguageLabel">{{ 'localization.language_label' | t }}</h2>
@@ -591,13 +592,13 @@
       "type": "color_scheme",
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
-      "default": "background-1"
+      "default": "scheme-1"
     },
       {
       "type": "color_scheme",
       "id": "menu_color_scheme",
       "label": "t:sections.header.settings.menu_color_scheme.label",
-      "default": "background-1"
+      "default": "scheme-1"
     },
     {
       "type": "header",
@@ -607,7 +608,7 @@
     {
       "type": "checkbox",
       "id": "enable_country_selector",
-      "default": false,
+      "default": true,
       "label": "t:sections.header.settings.enable_country_selector.label"
     },
     {
@@ -618,7 +619,7 @@
     {
       "type": "checkbox",
       "id": "enable_language_selector",
-      "default": false,
+      "default": true,
       "label": "t:sections.header.settings.enable_language_selector.label"
     },
     {
