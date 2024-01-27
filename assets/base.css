@@ -560,6 +560,8 @@ hr {
   text-decoration: none;
   color: currentColor;
   display: block;
+  font-size: 26px;
+  text-align: center;
 }
 
 .placeholder {
@@ -2401,6 +2403,7 @@ product-info .loading__spinner:not(.hidden) ~ *,
   display: flex;
   align-items: center;
   margin-top: 40px;
+  box-shadow: 0px 24px 36px 0px #0000000d;
 }
 header {
   width: 100%;
@@ -3637,6 +3640,13 @@ details-disclosure > details {
 
 .title-name {
   background-image: none;
+  text-transform: capitalize;
+  font-weight: 800;
+  color: #a5a5a5;
+  height: 70px;
+  display: inline-flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .collection-img {
@@ -3670,4 +3680,9 @@ details-disclosure > details {
 .card:hover {
   border: 1px solid #82c341;
   box-shadow: 0px 9px 31px 0px #00000012;
+}
+.title-wrapper-with-link h2,
+h1 {
+  display: block;
+  margin: auto;
 }

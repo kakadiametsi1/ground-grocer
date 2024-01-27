@@ -93,7 +93,7 @@
 }
 
 .card-information {
-  text-align: var(--text-alignment);
+  text-align: center;
 }
 
 .card__media,
@@ -372,7 +372,13 @@
 }
 
 .card-information > .price {
-  color: rgb(var(--color-foreground));
+  /* color: rgb(var(--color-foreground)); */
+  color: #82c341;
+  font-family: Poppins;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
 }
 
 .card--horizontal .card-information > .price {
