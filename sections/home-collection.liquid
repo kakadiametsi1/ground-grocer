@@ -1,0 +1,389 @@
+{{ 'section-collection-list.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  .title-img{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign columns_mobile_int = section.settings.columns_mobile | plus: 0
+  assign show_mobile_slider = false
+  if section.settings.swipe_on_mobile and section.blocks.size > columns_mobile_int
+    assign show_mobile_slider = true
+  endif
+-%}
+
+<div class="color-{{ section.settings.color_scheme }} home-bg gradient">
+  <div class="collection-list-wrapper page-width isolate{% if show_mobile_slider %} page-width-desktop{% endif %}{% if section.settings.title == blank %} no-heading{% endif %}{% if section.settings.show_view_all == false or section.blocks.size > collections.size %} no-mobile-link{% endif %} section-{{ section.id }}-padding">
+  <div class="title-img"><svg width="552" height="30" viewBox="0 0 602 49" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <rect width="602" height="49" fill="url(#pattern0)"/>
+  <path d="M187.94 35.34H182.38L181.46 38H178.52L183.54 24.02H186.8L191.82 38H188.86L187.94 35.34ZM187.18 33.1L185.16 27.26L183.14 33.1H187.18ZM202.896 35.78H207.496V38H200.096V24.04H202.896V35.78ZM218.476 35.78H223.076V38H215.676V24.04H218.476V35.78ZM251.921 24.04V26.3H248.201V38H245.401V26.3H241.681V24.04H251.921ZM263.164 24.04V38H260.364V24.04H263.164ZM287.551 24.04V38H284.751V28.92L281.011 38H278.891L275.131 28.92V38H272.331V24.04H275.511L279.951 34.42L284.391 24.04H287.551ZM299.519 26.3V29.8H304.219V32.02H299.519V35.72H304.819V38H296.719V24.02H304.819V26.3H299.519ZM333.549 24.04V26.3H327.729V29.88H332.189V32.1H327.729V38H324.929V24.04H333.549ZM349.135 38L346.055 32.56H344.735V38H341.935V24.04H347.175C348.255 24.04 349.175 24.2333 349.935 24.62C350.695 24.9933 351.261 25.5067 351.635 26.16C352.021 26.8 352.215 27.52 352.215 28.32C352.215 29.24 351.948 30.0733 351.415 30.82C350.881 31.5533 350.088 32.06 349.035 32.34L352.375 38H349.135ZM344.735 30.46H347.075C347.835 30.46 348.401 30.28 348.775 29.92C349.148 29.5467 349.335 29.0333 349.335 28.38C349.335 27.74 349.148 27.2467 348.775 26.9C348.401 26.54 347.835 26.36 347.075 26.36H344.735V30.46ZM363.947 26.3V29.8H368.647V32.02H363.947V35.72H369.247V38H361.147V24.02H369.247V26.3H363.947ZM383.012 38.14C382.038 38.14 381.158 37.9733 380.372 37.64C379.598 37.3067 378.985 36.8267 378.532 36.2C378.078 35.5733 377.845 34.8333 377.832 33.98H380.832C380.872 34.5533 381.072 35.0067 381.432 35.34C381.805 35.6733 382.312 35.84 382.952 35.84C383.605 35.84 384.118 35.6867 384.492 35.38C384.865 35.06 385.052 34.6467 385.052 34.14C385.052 33.7267 384.925 33.3867 384.672 33.12C384.418 32.8533 384.098 32.6467 383.712 32.5C383.338 32.34 382.818 32.1667 382.152 31.98C381.245 31.7133 380.505 31.4533 379.932 31.2C379.372 30.9333 378.885 30.54 378.472 30.02C378.072 29.4867 377.872 28.78 377.872 27.9C377.872 27.0733 378.078 26.3533 378.492 25.74C378.905 25.1267 379.485 24.66 380.232 24.34C380.978 24.0067 381.832 23.84 382.792 23.84C384.232 23.84 385.398 24.1933 386.292 24.9C387.198 25.5933 387.698 26.5667 387.792 27.82H384.712C384.685 27.34 384.478 26.9467 384.092 26.64C383.718 26.32 383.218 26.16 382.592 26.16C382.045 26.16 381.605 26.3 381.272 26.58C380.952 26.86 380.792 27.2667 380.792 27.8C380.792 28.1733 380.912 28.4867 381.152 28.74C381.405 28.98 381.712 29.18 382.072 29.34C382.445 29.4867 382.965 29.66 383.632 29.86C384.538 30.1267 385.278 30.3933 385.852 30.66C386.425 30.9267 386.918 31.3267 387.332 31.86C387.745 32.3933 387.952 33.0933 387.952 33.96C387.952 34.7067 387.758 35.4 387.372 36.04C386.985 36.68 386.418 37.1933 385.672 37.58C384.925 37.9533 384.038 38.14 383.012 38.14ZM408.359 24.04V38H405.559V32.06H399.579V38H396.779V24.04H399.579V29.78H405.559V24.04H408.359Z" fill="#202020"/>
+  <defs>
+  <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+  <use xlink:href="#image0_0_1" transform="matrix(0.00143678 0 0 0.0176519 0 -0.00307882)"/>
+  </pattern>
+  <image id="image0_0_1" width="696" height="57" xlink:href="data:image/png;base64,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"/>
+  </defs>
+  </svg>
+</div>
+  {%- unless section.settings.title == blank -%}
+      <div class="title-wrapper-with-link{% if show_mobile_slider %} title-wrapper--self-padded-tablet-down{% else %} title-wrapper--self-padded-mobile{% endif %} title-wrapper--no-top-margin">
+        <h2
+          id="SectionHeading-{{ section.id }}"
+          class="collection-list-title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+        >
+          {{ section.settings.title }}
+        </h2>
+
+        {%- if section.settings.show_view_all and show_mobile_slider -%}
+          <a
+            href="{{ routes.collections_url }}"
+            id="ViewAll-{{ section.id }}"
+            class="link underlined-link large-up-hide{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            aria-labelledby="ViewAll-{{ section.id }} SectionHeading-{{ section.id }}"
+          >
+            {{- 'sections.collection_list.view_all' | t -}}
+          </a>
+        {%- endif -%}
+      </div>
+    {%- endunless -%}
+
+    <slider-component class="slider-mobile-gutter{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      <ul
+        class="collection-list contains-card contains-card--collection{% if settings.card_style == 'standard' %} contains-card--standard{% endif %} grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down{% if section.settings.swipe_on_mobile %} slider slider--tablet grid--peek{% endif %} collection-list--{{ section.blocks.size }}-items"
+        id="Slider-{{ section.id }}"
+        role="list"
+      >
+        {%- liquid
+          assign columns = section.blocks.size
+          if columns > 3
+            assign columns = 3
+          endif
+        -%}
+        {%- for block in section.blocks -%}
+          <li
+            id="clId-{{forloop.index }}"
+            onclick="onBlockClick({{ forloop.index }})"
+            index={{ forloop.index }}
+            class="collection-list__item grid__item{% if show_mobile_slider %} slider__slide{% endif %}{% if block.settings.collection.featured_image == nil %} collection-list__item--no-media{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            {{ block.shopify_attributes }}
+            {% if settings.animations_reveal_on_scroll %}
+              data-cascade
+              style="--animation-order: {{ forloop.index }};"
+            {% endif %}
+          >
+          <div class="collect-list">
+            {% if block.settings.image != blank %}
+              <div class="collection-img"><img src="{{ block.settings.image | image_url: width:60 }}" alt="collection-image"/>
+            </div>
+          {% endif %}
+          <div class="title-name">{{block.settings.collection }}
+        </div>
+          </li>
+        {%- endfor -%}
+      </ul>
+        {%- for block in section.blocks -%}
+
+          <div class="collection-list">
+            <ul
+              id="collection-index-{{forloop.index }}"
+              index={{ forloop.index }}
+              class="h
+                grid collection-grid product-grid grid--2-col-tablet-down
+                grid--4-col-desktop
+              "
+            >
+            {%- for product in block.settings.collection.products -%}
+
+                <li
+                  class="collect-products grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                  {% if settings.animations_reveal_on_scroll %}
+                    data-cascade
+                    style="--animation-order: {{ forloop.index }};"
+                  {% endif %}
+                >
+                  {% render 'home-card',
+                    card_product: product,
+                    media_aspect_ratio: section.settings.image_ratio,
+                    image_shape: section.settings.image_shape,
+                    show_secondary_image: section.settings.show_secondary_image,
+                    show_vendor: section.settings.show_vendor,
+                    show_rating: section.settings.show_rating,
+                    lazy_load: lazy_load,
+                    show_quick_add: section.settings.enable_quick_add,
+                    section_id: section.id
+                  %}
+                </li>
+            {%- endfor -%}
+                </ul>
+              </div>
+            {%- endfor -%}
+      {% comment %} {%- if show_mobile_slider -%}
+        <div class="slider-buttons no-js-hidden">
+          <button
+            type="button"
+            class="slider-button slider-button--prev"
+            name="previous"
+            aria-label="{{ 'general.slider.previous_slide' | t }}"
+          >
+            {% render 'icon-caret' %}
+          </button>
+          <div class="slider-counter caption">
+            <span class="slider-counter--current">1</span>
+            <span aria-hidden="true"> / </span>
+            <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
+            <span class="slider-counter--total">{{ section.blocks.size }}</span>
+          </div>
+          <button
+            type="button"
+            class="slider-button slider-button--next"
+            name="next"
+            aria-label="{{ 'general.slider.next_slide' | t }}"
+          >
+            {% render 'icon-caret' %}
+          </button>
+        </div>
+      {%- endif -%} {% endcomment %}
+    </slider-component>
+
+    {%- if section.settings.show_view_all and section.blocks.size < collections.size -%}
+      <div
+        class="center collection-list-view-all{% if show_mobile_slider %} small-hide medium-hide{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+        {% if settings.animations_reveal_on_scroll %}
+          data-cascade
+        {% endif %}
+      >
+        <a
+          href="{{ routes.collections_url }}"
+          class="button"
+          id="ViewAllButton-{{ section.id }}"
+          aria-labelledby="ViewAllButton-{{ section.id }} SectionHeading-{{ section.id }}"
+        >
+          {{- 'sections.collection_list.view_all' | t -}}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+<script>
+const onBlockClick = (index, activateFirst = false) => {
+    document.querySelectorAll('.collection-grid').forEach(function(element) {
+        element.style.display = 'none';
+    });
+
+    var targetElement = document.getElementById('collection-index-' + index);
+    if (targetElement) {
+        targetElement.style.display = 'flex';
+    }
+
+    // Activate the first index if specified
+    if (activateFirst) {
+        var firstElement = document.getElementById('collection-index-1');
+        if (firstElement) {
+            firstElement.style.display = 'flex'
+        }
+    }
+    document.querySelectorAll('.collection-list__item').forEach(function (element) {
+        element.classList.remove('collectionActive');
+    });
+
+    var targetclt = document.getElementById('clId-' + index);
+    if (targetclt) {
+        targetclt.classList.add('collectionActive')
+    }
+    if (activateFirst) {
+        var firstclt = document.getElementById('clId-1');
+        if (firstclt) {
+            firstclt.classList.add('collectionActive')
+        }
+    }
+}
+
+// Example usage:
+// Activate the clicked block and the first index
+onBlockClick(1, true);
+</script>
+
+{% schema %}
+{
+  "name": "Home Collection",
+  "tag": "section",
+  "class": "section section-collection-list",
+  "max_blocks": 15,
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "Collections",
+      "label": "t:sections.collection-list.settings.title.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.collection-list.settings.image_ratio.options__1.label"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.collection-list.settings.image_ratio.options__2.label"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.collection-list.settings.image_ratio.options__3.label"
+        }
+      ],
+      "default": "square",
+      "label": "t:sections.collection-list.settings.image_ratio.label",
+      "info": "t:sections.collection-list.settings.image_ratio.info"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 3,
+      "label": "t:sections.collection-list.settings.columns_desktop.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.has_cards_info",
+      "default": "scheme-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "default": false,
+      "label": "t:sections.collection-list.settings.show_view_all.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.collection-list.settings.header_mobile.content"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "options": [
+        {
+          "value": "1",
+          "label": "t:sections.collection-list.settings.columns_mobile.options__1.label"
+        },
+        {
+          "value": "2",
+          "label": "t:sections.collection-list.settings.columns_mobile.options__2.label"
+        }
+      ],
+      "default": "1",
+      "label": "t:sections.collection-list.settings.columns_mobile.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "swipe_on_mobile",
+      "default": false,
+      "label": "t:sections.collection-list.settings.swipe_on_mobile.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "featured_collection",
+      "name": "t:sections.collection-list.blocks.featured_collection.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.collection-list.blocks.featured_collection.settings.image.label"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "t:sections.collection-list.blocks.featured_collection.settings.collection.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home Collection",
+      "blocks": [
+        {
+          "type": "featured_collection"
+        },
+        {
+          "type": "featured_collection"
+        },
+        {
+          "type": "featured_collection"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

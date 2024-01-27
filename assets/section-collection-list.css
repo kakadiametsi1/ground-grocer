@@ -12,6 +12,10 @@
     padding-left: 0;
     padding-right: 0;
   }
+  .collection-list {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
 
   .section-collection-list .page-width {
     padding-left: 0;
