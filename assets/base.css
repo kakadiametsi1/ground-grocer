@@ -3672,11 +3672,12 @@ details-disclosure > details {
 .card:hover + .content-bg {
   background-color: #ffffff;
 }
-
 .content-bg {
   background-color: #f7f6f2;
 }
-
+.content-bg:hover {
+  background-color: #fff;
+}
 .card:hover {
   border: 1px solid #82c341;
   box-shadow: 0px 9px 31px 0px #00000012;
