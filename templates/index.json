@@ -53,35 +53,35 @@
         "featured_collection_PyGWPX": {
           "type": "featured_collection",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Group_4.png",
+            "image": "shopify:\/\/shop_images\/Frame.png",
             "collection": "vegetables"
           }
         },
         "featured_collection_ttAB4G": {
           "type": "featured_collection",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Group_5.png",
+            "image": "shopify:\/\/shop_images\/Frame_1.png",
             "collection": "fruits"
           }
         },
         "featured_collection_aTmA9g": {
           "type": "featured_collection",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Group_6.png",
+            "image": "shopify:\/\/shop_images\/Frame_2.png",
             "collection": "bread"
           }
         },
         "featured_collection_bYfimn": {
           "type": "featured_collection",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Group_9.png",
+            "image": "shopify:\/\/shop_images\/Frame_3.png",
             "collection": "dairy"
           }
         },
         "featured_collection_ebDeEt": {
           "type": "featured_collection",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Group_7.png",
+            "image": "shopify:\/\/shop_images\/Frame_4.png",
             "collection": "bakery"
           }
         }
