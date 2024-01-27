@@ -40,37 +40,76 @@
         "show_text_below": false
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "home_collection_mwTAQL": {
+      "type": "home-collection",
+      "blocks": {
+        "featured_collection_TqpwLn": {
+          "type": "featured_collection",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_3.png",
+            "collection": "all-products"
+          }
+        },
+        "featured_collection_PyGWPX": {
+          "type": "featured_collection",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_4.png",
+            "collection": "vegetables"
+          }
+        },
+        "featured_collection_ttAB4G": {
+          "type": "featured_collection",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_5.png",
+            "collection": "fruits"
+          }
+        },
+        "featured_collection_aTmA9g": {
+          "type": "featured_collection",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_6.png",
+            "collection": "bread"
+          }
+        },
+        "featured_collection_bYfimn": {
+          "type": "featured_collection",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_9.png",
+            "collection": "dairy"
+          }
+        },
+        "featured_collection_ebDeEt": {
+          "type": "featured_collection",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_7.png",
+            "collection": "bakery"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_TqpwLn",
+        "featured_collection_PyGWPX",
+        "featured_collection_ttAB4G",
+        "featured_collection_aTmA9g",
+        "featured_collection_bYfimn",
+        "featured_collection_ebDeEt"
+      ],
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "color_scheme": "background-1",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "enable_quick_add": false,
-        "columns_mobile": "2",
+        "title": "Collections",
+        "heading_size": "h1",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "show_view_all": false,
+        "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "padding_top": 44,
+        "padding_top": 36,
         "padding_bottom": 36
       }
     }
   },
   "order": [
     "image_banner",
-    "featured_collection"
+    "home_collection_mwTAQL"
   ]
 }
