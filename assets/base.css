@@ -3618,7 +3618,6 @@ details-disclosure > details {
     --border-offset: 0px; /* Prevent the border from growing on buttons when this effect is on. */
   }
 }
-
 .collectionActive .collection-img {
   filter: opacity(90%) brightness(5) drop-shadow(0 0 0 #82c341)
     drop-shadow(0 0 0 #82c341);
@@ -3648,14 +3647,14 @@ details-disclosure > details {
 }
 .collection-img:hover + .title-name {
   color: #ffffff;
-  background-image: url("title-bg.png");
+  background-image: url("bg-title.png");
   background-position: center;
   background-size: cover;
   background-position: top;
 }
 .collectionActive .title-name {
   color: #ffffff;
-  background-image: url("title-bg.png");
+  background-image: url("bg-title.png");
   background-position: center;
   background-size: cover;
   background-position: top;
